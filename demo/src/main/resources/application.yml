@@ -1,0 +1,50 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    username: root
+    password: lwz123456
+    url: jdbc:mysql://127.0.0.1:3306/lv?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    content-type: text/html
+    mode: HTML5
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    lettuce:
+      pool:
+        max-active: 80
+        max-wait: -1
+        max-idle: 80
+        min-idle: 0
+    timeout: 30000
+  mail:
+    default-encoding: utf-8
+    # 主机地址
+    host: smtp.qq.com
+    # 邮箱名
+    username: 1520553040@qq.com
+    # 授权码（不是密码）
+    password: nhcnlfkpyltpiigj
+    port: 465
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.lwz.demo.pojo
+
+
+

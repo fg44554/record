@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>文件名</th>
+        <th>句子</th>
+        <th>时长</th>
+        <th>起始时间</th>
+        <th>结束时间</th>
+        <th>包含的电话号码</th>
+        <th>电话号码次数</th>
+        <th>情绪分析</th>
+    </tr>
+    <tr  th:each="te : ${text.texts}" >
+        <td th:text="${te.title}">标题</td>
+        <td th:text="${te.text}">句子</td>
+        <td th:text="${te.time}">时长</td>
+        <td th:text="${te.bTime}">起始时间</td>
+        <td th:text="${te.eTime}">结束时间</td>
+        <td th:text="${te.phone}">包含的电话号码</td>
+        <td th:text="${te.times}">电话号码次数</td>
+        <td th:text="${te.mood}">情绪</td>
+
+</tr>
+</table>
+<form action="/index1" method="post">
+    <input type="submit" value="主页">
+</form>
+</body>
+</html>

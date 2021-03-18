@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/register" method="post">
+    <table>
+        <tr>
+            <td><label>管理员ID: </label></td>
+            <td><input type="text" id="admin_id" name="admin_id"></td>
+        </tr>
+        <tr>
+            <td><label>用户姓名: </label></td>
+            <td><input type="text" id="username" name="username"></td>
+        </tr>
+        <tr>
+            <td><label>用户密码: </label></td>
+            <td><input type="password" id="password" name="password"></td>
+        </tr>
+        <tr>
+            <td><label>邮箱: </label></td>
+            <td><input type="text" id="email" name="email"></td>
+        </tr>
+        <tr>
+            <td><input id="submit" type="submit" value="注册"></td>
+        </tr>
+    </table>
+</form>
+<a th:href="@{http://8.131.64.240:8080/backLogin}"  th:text="返回登录界面" ></a>
+</body>
+</html>

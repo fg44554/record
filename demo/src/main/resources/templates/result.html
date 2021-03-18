@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>id</th>
+        <th>生日</th>
+    </tr>
+    <tr  th:each="msg : ${msg3.msg2}">
+        <td th:text="${msg.name}">姓名</td>
+        <td th:text="${msg.age}">年龄</td>
+        <td th:text="${msg.gender}">性别</td>
+        <th th:text="${msg.id}">id</th>
+        <th th:text="${msg.birth}">生日</th>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>文件名</th>
+        <th>类型</th>
+        <th>大小</th>
+        <th>时间</th>
+        <th>播放</th>
+        <th>查看音频内容</th>
+        <th>情绪分析折线图</th>
+        <!--        <audio src="$protocol$://$host$:$port$/aliapi/getvoice?id=$id$" controls>-->
+    </tr>
+    <tr  th:each="msg : ${upmsg2.upmsg3}">
+        <!--        <td th:text="${msg.name}" onclick="loaction.href='http://8.131.64.240:8080/uploading?name=${msg.name}}'">文件名</td>-->
+        <td ><a th:href="@{http://8.131.64.240:8080/GetFile/{name}(name=${msg.name})}" target="_blank" th:text="${msg.name}" ></a></td>
+        <td th:text="${msg.type}">类型</td>
+        <td th:text="${msg.size}">大小</td>
+        <td th:text="${msg.time}">时间</td>
+        <td ><span th:if="(${msg.type}=='.mp3') or (${msg.type}=='.wav')"><audio th:src="@{http://8.131.64.240:8080/GetFile/{name}(name=${msg.name})}" controls></audio></span></td>
+        <td ><span th:if="(${msg.type}=='.mp3') or (${msg.type}=='.wav')"><a th:href="@{http://8.131.64.240:8080/getText(name=${msg.name},user_id=${msg.user_id})}" target="_self" th:text="查看音频内容" ></a></span></td>
+        <td ><span th:if="(${msg.type}=='.mp3') or (${msg.type}=='.wav')"><a th:href="@{http://8.131.64.240:8080/echarts(name=${msg.name},user_id=${msg.user_id})}"  th:text="情绪分析折线图" ></a></span></td>
+        <td ><a th:href="@{http://8.131.64.240:8080/delete1(name=${msg.name},admin_id=${msg.admin_id},user_id=${msg.user_id})}" th:text="删除"></a></td>
+    </tr>
+</table>
+<form action="/upload" method="post">
+    <input type="submit" value="上传">
+</form>
+<a href="/toChange">更改密码</a>
+<a href="/validate">注销</a>
+</body>
+</html>
